@@ -34,9 +34,9 @@ export default function NowPlaying() {
 
   if (error) {
     return (
-      <div className="bg-black text-white p-3 md:p-4 font-mono text-xs md:text-sm flex items-center gap-2 md:gap-3 rounded-lg">
+      <div className="inline-block bg-black text-white px-6 py-3 font-mono text-xs md:text-sm flex items-center gap-2 rounded-lg">
         <Music className="w-4 h-4 flex-shrink-0" />
-        <div>Last.fm integration not configured</div>
+        <div>Not configured</div>
       </div>
     );
   }
@@ -44,18 +44,21 @@ export default function NowPlaying() {
   if (!track) return null;
 
   return (
-    <div className="bg-black text-white p-4 font-mono text-xs md:text-sm flex justify-center items-center gap-2 md:gap-3 rounded-lg w-full max-w-md">
-      <Music className="w-4 h-4 flex-shrink-0" />
-      <div className="truncate">
-        <a
-          href={track.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:underline truncate"
-          title={`${track.name} - ${track.artist}`}
-        >
-          {track.name} - {track.artist}
-        </a>
+    <div className="inline-block bg-black text-white px-6 py-3 font-mono text-xs md:text-sm rounded-lg overflow-hidden">
+      <div className="flex items-center gap-2">
+        <Music className="w-4 h-4 flex-shrink-0" />
+        <div className="overflow-hidden relative">
+          <div className="animate-marquee whitespace-nowrap">
+            <a
+              href={track.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              {track.name} - {track.artist}
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
