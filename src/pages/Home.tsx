@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import NowPlaying from '../components/NowPlaying';
 
 const Home = () => {
@@ -14,12 +13,6 @@ const Home = () => {
           of technology and art.
         </p>
         <div className="flex flex-col items-center gap-4">
-          <Link
-            to="/projects"
-            className="inline-block bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors hover:scale-105 transform duration-200"
-          >
-            View My Projects →
-          </Link>
           <NowPlaying />
         </div>
       </div>
