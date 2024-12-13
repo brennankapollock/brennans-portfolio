@@ -1,5 +1,4 @@
-import React from 'react';
-import { Mail, Github, Twitter } from 'lucide-react';
+import { Github, Mail, Twitter } from 'lucide-react';
 
 export default function Contact() {
   return (
@@ -8,37 +7,37 @@ export default function Contact() {
         <h1 className="text-4xl font-bold mb-8">Contact</h1>
         <div className="space-y-8">
           <p className="text-lg">
-            I'm always interested in new opportunities and collaborations.
-            Feel free to reach out through any of the following channels:
+            I'm always interested in new opportunities and collaborations. Feel
+            free to reach out through any of the following channels:
           </p>
-          
+
           <div className="space-y-4">
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:mail@brennankapollock.com"
               className="flex items-center gap-3 text-lg hover:underline"
             >
               <Mail className="w-6 h-6" />
-              your.email@example.com
+              mail@brennankapollock.com
             </a>
-            
+
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/brennankapollock"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 text-lg hover:underline"
             >
               <Github className="w-6 h-6" />
-              @yourusername
+              @brennankapollock
             </a>
-            
+
             <a
-              href="https://twitter.com/yourusername"
+              href="https://instagram.com/brennankeithpollock"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 text-lg hover:underline"
             >
               <Twitter className="w-6 h-6" />
-              @yourusername
+              @brennankeithpollock
             </a>
           </div>
 
@@ -46,7 +45,9 @@ export default function Contact() {
             <h2 className="text-2xl font-bold mb-4">Quick Message</h2>
             <form className="space-y-4">
               <div>
-                <label htmlFor="name" className="block mb-2">Name</label>
+                <label htmlFor="name" className="block mb-2">
+                  Name
+                </label>
                 <input
                   type="text"
                   id="name"
@@ -54,7 +55,9 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block mb-2">Email</label>
+                <label htmlFor="email" className="block mb-2">
+                  Email
+                </label>
                 <input
                   type="email"
                   id="email"
@@ -62,7 +65,9 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block mb-2">Message</label>
+                <label htmlFor="message" className="block mb-2">
+                  Message
+                </label>
                 <textarea
                   id="message"
                   rows={4}
