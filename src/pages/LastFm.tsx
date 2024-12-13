@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 interface Track {
   name: string;
@@ -28,13 +28,13 @@ const LastFm = () => {
     const fetchLastFmData = async () => {
       try {
         setIsLoading(true);
-        
+
         // Fetch top tracks
         const tracksResponse = await fetch(
           `https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${LASTFM_USERNAME}&api_key=${LASTFM_API_KEY}&format=json&period=1month&limit=10`
         );
         const tracksData = await tracksResponse.json();
-        
+
         // Fetch top artists
         const artistsResponse = await fetch(
           `https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${LASTFM_USERNAME}&api_key=${LASTFM_API_KEY}&format=json&period=1month&limit=10`
@@ -47,7 +47,7 @@ const LastFm = () => {
             artist: track.artist.name,
             playcount: parseInt(track.playcount),
             url: track.url,
-            image: track.image[2]['#text'] // medium size image
+            image: track.image[2]['#text'], // medium size image
           }))
         );
 
@@ -56,7 +56,7 @@ const LastFm = () => {
             name: artist.name,
             playcount: parseInt(artist.playcount),
             url: artist.url,
-            image: artist.image[2]['#text'] // medium size image
+            image: artist.image[2]['#text'], // medium size image
           }))
         );
 
@@ -73,7 +73,7 @@ const LastFm = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-[calc(100vh-200px)] flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
       </div>
     );
@@ -81,20 +81,24 @@ const LastFm = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-[calc(100vh-200px)] flex items-center justify-center">
         <div className="text-red-500">{error}</div>
       </div>
     );
   }
 
   return (
-    <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center px-4">
-      <h1 className="text-3xl font-bold mb-6 text-center">My Last.fm Stats</h1>
-      
-      <div className="grid md:grid-cols-2 gap-6 w-full max-w-6xl">
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-6 text-center">
+        What I'm Listening To
+      </h1>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Top Tracks */}
-        <div className="bg-white rounded-lg shadow-lg p-4 h-[calc(100vh-12rem)] overflow-auto">
-          <h2 className="text-xl font-semibold mb-4 sticky top-0 bg-white">Top Tracks (Last Month)</h2>
+        <div className="bg-white rounded-lg shadow-lg p-4">
+          <h2 className="text-xl font-semibold mb-4 sticky top-0 bg-white">
+            Top Tracks (Last Month)
+          </h2>
           <div className="space-y-3">
             {topTracks.map((track, index) => (
               <a
@@ -116,7 +120,9 @@ const LastFm = () => {
                 )}
                 <div className="flex-1 min-w-0">
                   <div className="font-medium truncate">{track.name}</div>
-                  <div className="text-sm text-gray-500 truncate">{track.artist}</div>
+                  <div className="text-sm text-gray-500 truncate">
+                    {track.artist}
+                  </div>
                 </div>
                 <div className="text-sm text-gray-500 whitespace-nowrap">
                   {track.playcount} plays
@@ -127,8 +133,10 @@ const LastFm = () => {
         </div>
 
         {/* Top Artists */}
-        <div className="bg-white rounded-lg shadow-lg p-4 h-[calc(100vh-12rem)] overflow-auto">
-          <h2 className="text-xl font-semibold mb-4 sticky top-0 bg-white">Top Artists (Last Month)</h2>
+        <div className="bg-white rounded-lg shadow-lg p-4">
+          <h2 className="text-xl font-semibold mb-4 sticky top-0 bg-white">
+            Top Artists (Last Month)
+          </h2>
           <div className="space-y-3">
             {topArtists.map((artist, index) => (
               <a

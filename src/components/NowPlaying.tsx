@@ -34,7 +34,7 @@ export default function NowPlaying() {
 
   if (error) {
     return (
-      <div className="m-4 bg-black text-white p-3 md:p-4 font-mono text-xs md:text-sm flex items-center gap-2 md:gap-3 rounded-lg">
+      <div className="bg-black text-white p-3 md:p-4 font-mono text-xs md:text-sm flex items-center gap-2 md:gap-3 rounded-lg">
         <Music className="w-4 h-4 flex-shrink-0" />
         <div>Last.fm integration not configured</div>
       </div>
@@ -44,17 +44,14 @@ export default function NowPlaying() {
   if (!track) return null;
 
   return (
-    <div className="m-4 bg-black text-white p-4  md:p-4 font-mono text-xs md:text-sm flex items-center gap-2 md:gap-3 rounded-lg max-w-[calc(100vw-2rem)] md:max-w-md">
+    <div className="bg-black text-white p-4 font-mono text-xs md:text-sm flex justify-center items-center gap-2 md:gap-3 rounded-lg w-full max-w-md">
       <Music className="w-4 h-4 flex-shrink-0" />
       <div className="truncate">
-        <span className="hidden md:inline">
-          {track.isNowPlaying ? 'Now playing:' : 'Last played:'}
-        </span>
         <a
           href={track.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:underline ml-1 truncate"
+          className="hover:underline truncate"
           title={`${track.name} - ${track.artist}`}
         >
           {track.name} - {track.artist}

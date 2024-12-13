@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
+import NowPlaying from '../components/NowPlaying';
 
 const Home = () => {
   return (
-    <div className="h-[calc(100vh-4rem)] flex items-center justify-center">
-      <div className="text-center space-y-6 max-w-2xl px-4">
+    <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center px-4">
+      <div className="text-center space-y-6 max-w-2xl flex flex-col items-center">
         <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
           Brennan Pollock
         </h1>
@@ -19,6 +20,9 @@ const Home = () => {
           >
             View My Projects →
           </Link>
+        </div>
+        <div className="w-full max-w-md">
+          <NowPlaying />
         </div>
       </div>
     </div>
