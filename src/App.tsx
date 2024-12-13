@@ -18,6 +18,7 @@ import {
   Routes,
   useLocation,
 } from 'react-router-dom';
+import * as VercelAnalytics from '@vercel/analytics/react';
 
 // Pages
 import About from './pages/About';
@@ -161,6 +162,7 @@ function App() {
   return (
     <Router>
       <AppContent />
+      <VercelAnalytics.Analytics />
     </Router>
   );
 }
